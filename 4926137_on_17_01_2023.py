@@ -12,20 +12,11 @@ with open ("precipitation.json", encoding='utf-8') as file:
     
 # Grouping by months
 
-#create results dictionary
-
-# Mr Joris Method 
-#for dict_item in my_file:
-    #if(dict_item["station"] == "GHCND:US1WAKG0038"):
-      #  splitted_date = dict_item["date"].split("-")
-       # print(splitted_date)
-        #print(dict_item["value"]) 
-        
-#My method 
-
 # months_dictionary corresponds to total_monthly_precipitation in the exercise instructions
 
 months_dictionary = {'1':0, '2': 0, '3': 0, '4': 0, '5': 0,'6': 0,'7': 0,'8': 0,'9': 0, '10': 0, '11': 0, '12': 0}
+
+# Barbarian Method - it works, but if you want to see my shot at transforming it into loop, look below
 
 for dict_item in my_file:
     if(dict_item["station"] == "GHCND:US1WAKG0038"):
@@ -56,6 +47,15 @@ for dict_item in my_file:
     
 print(months_dictionary)
 
+# Smart method - transforming into loop
+
+#for dict_item in my_file:
+ #   if(dict_item["station"] == "GHCND:US1WAKG0038"):
+  #      for month in months_dictionary:
+   #      if dict_item["date"].startswith("2010-"+month):
+    #        months_dictionary[month] += (dict_item["value"])
+
+
 # Saving to json file
 
 with open("results.json", "w", encoding="utf-8") as json_file:
@@ -78,6 +78,16 @@ for month in months_dictionary.values():
 
 # Part 3
 
-import csv
 
-file= open('company_sales_data.csv', 'r')
+# Part 3
+
+#import csv
+
+#stations_file = open('stations.csv', 'r')
+
+#file = csv.DictReader(stations_file)
+
+#station = []
+
+#for col in file:
+    #station.append(col['Station'])
