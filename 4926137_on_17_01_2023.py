@@ -73,8 +73,15 @@ print("Total yearly precipitation eqals", total_yearly_precipitation)
 
 relative_monthly_precipitation = {'1':0, '2': 0, '3': 0, '4': 0, '5': 0,'6': 0,'7': 0,'8': 0,'9': 0, '10': 0, '11': 0, '12': 0}
 
-for month in months_dictionary.values():
-    print(int(month)/int(total_yearly_precipitation))
+with open("results.json", "w", encoding="utf-8") as json_file:
+
+    for month in months_dictionary.values():
+        percentage_rain=(int(month)/int(total_yearly_precipitation))
+        print(percentage_rain)
+        json.dump(percentage_rain, json_file, indent=4)
+
+#with open("results.json", "w", encoding="utf-8") as json_file:
+#    json.dump(percentage_rain, json_file, indent=4)
 
 # Part 3
 
